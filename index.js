@@ -8,7 +8,7 @@ console.log(argumentos_sin_slice)*/
 if(argumentos[0]=="GET" && argumentos[1]=="products"){
     obtenerProductos()
 }else if(argumentos[0]=="GET" && argumentos[1].includes("products/")){
-    obtenerProducto(argumentos[1])
+    obtenerProductos(argumentos[1].split("/")[1])
 }else if(argumentos[0]=="POST" && argumentos[1]=="products" && argumentos.length==5){
     const producto ={
         title:argumentos[2],
@@ -17,7 +17,7 @@ if(argumentos[0]=="GET" && argumentos[1]=="products"){
     }
     agregarProducto(producto)
 }else if(argumentos[0]=="DELETE" && argumentos[1].includes("products/") ){
-    eliminarProducto(argumentos[1])
+    eliminarProducto(argumentos[1].split("/")[1])
 }
 else{
     console.log("Error")

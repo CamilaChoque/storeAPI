@@ -1,30 +1,28 @@
-export async function obtenerProductos(){
+export async function obtenerProductos(idProd){
+    let url="https://fakestoreapi.com/products"
+    //let argumentos = process.argv.slice(2)
     try{
-        const response = await fetch("https://fakestoreapi.com/products",{
-            method: "GET"
-        })
+        if(idProd){
+            url+="/"+idProd
+        }
+        const response = await fetch(url,{method: "GET"})
         const data = await response.json()
-        console.log("Todos los productos: ")
-        data.map((producto)=>{
-            console.log(producto)
-        })
+        //muestra del producto/s
+        if(idProd){
+            console.log(`Información del producto ${idProd} : `,data)
+        }else{
+            console.log("Todos los productos: ")
+            data.forEach(function(producto){
+                console.log(producto)
+            })
+        }
+        
         
     }catch(error){
         console.log(error)
     }
 }
 
-export async function obtenerProducto(idProd){
-    try{
-        const response=await fetch(`https://fakestoreapi.com/${idProd}`,{
-            method:"GET"
-        })
-        const data = await response.json()
-        console.log(`Producto ${idProd} es: `,data)
-    }catch(error){
-        console.log(error)
-    }
-}
 
 export async function agregarProducto(producto){
     try{
@@ -45,11 +43,11 @@ export async function agregarProducto(producto){
 
 export async function eliminarProducto(idProd) {
     try{
-        const response = await fetch(`https://fakestoreapi.com/${idProd}`,{
+        const response = await fetch(`https://fakestoreapi.com/products/${idProd}`,{
             method:"DELETE"
         })
         const data = await response.json()
-        console.log("El producto ha sido eliminado: ",data)
+        console.log(`El producto ${idProd} ha sido eliminado: `,data)
     }catch(error){
         console.log(error)
     }
