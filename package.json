@@ -1,14 +1,23 @@
 {
   "name": "storeapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "La manipulación de la API [fakestoke](https://fakestoreapi.com/) a modo de práctica y adquirir conocimiento hacia las operaciones de _agregar_ , _obtener_ , _eliminar_ .",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "firebase": "^12.6.0",
+    "firebase-admin": "^13.6.0",
+    "jsonwebtoken": "^9.0.3",
+    "jwtoken": "^0.0.0"
+  }
 }
